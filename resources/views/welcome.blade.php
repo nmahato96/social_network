@@ -5,7 +5,7 @@
     .container-fluid form {
     float: right;
     margin-right: 10%;
-    width: 33%;
+    width: 36%;
 }
 .container-fluid form ul {
 
