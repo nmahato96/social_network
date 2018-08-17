@@ -1,95 +1,121 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('master')
 
-        <title>Laravel</title>
+@section('style')
+<style type="text/css">
+    .container-fluid form {
+    float: right;
+    margin-right: 10%;
+    width: 33%;
+}
+.container-fluid form ul {
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    margin-top: 3%;
+    width: 100%;
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+}
+.label_login {
+    margin: 0;
+}
+.container-fluid form a.forgotten_account {
 
-            .full-height {
-                height: 100vh;
-            }
+    padding-top: 0;
+    padding-left: 0;
+    color: #829dd7;
+    font-size: 95%;
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+}
+.label_login {
 
-            .position-ref {
-                position: relative;
-            }
+    margin: 0;
+    color: white;
+    font-size: 95%;
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+}
+.container-fluid form ul li {
 
-            .content {
-                text-align: center;
-            }
+    margin-left: 4%;
 
-            .title {
-                font-size: 84px;
-            }
+}
+.login_submit {
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+    background: #4065b4;
+    border: 1px solid #204690;
+    color: white;
+    font-size: 90%;
+    padding: 2px 8px;
+    border-radius: 2px;
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+}
+#navbar-brand {
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+    float: left;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 18px 0px 0px 76px;
+        margin-left: 76px;
+    margin-left: 180px !important;
+    line-height: 3rem;
+    color: white !important;
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+}
+.navbar{
+    border: none;
+}
+.navigation_container {
+
+    background-image: linear-gradient(#4e69a2, #3b5998 50%);
+    background-color: #3b5998;
+    border-bottom: 1px solid #1e2c4a;
+
+}
+.login_input {
+
+    border: 1px solid #15233f;
+    outline: none;
+    border-radius: 1px;
+    height: 24px;
+    font-size: 13px;
+    text-indent: 0.5rem;
+
+}
+.login_submit:hover {
+
+    background: #3458a4;
+
+}
+.container-fluid a.forgotten_account:hover {
+
+    text-decoration: underline;
+    color: #829dd7 !important;
+
+}
+</style>
+@endsection
+
+@section('navbar')
+<nav class="navbar navbar-default">
+    <div class="container-fluid navigation_container">
+        <div class="navbar-header">
+          <a id="navbar-brand" class="navbar-brand" href="#">facebook</a>
+      </div>
+      <form action="" method="POST">
+        {!! csrf_field() !!}
+        <ul class="nav navbar-nav">
+            <li>
+                <p class="label_login">Email or Phone</p>
+                <input type="text" name="uname" class="login_input">
+            </li>
+            <li>
+                <p class="label_login">Password</p>
+                <input type="password" name="upass" class="login_input">
+                <a href="#" class="forgotten_account">Forgotten Account?</a>
+            </li>
+            <li>
+                <p class="label_login" style="opacity: 0;">submit</p>
+                <input type="submit" name="" value="Log In" class="login_submit">
+            </li>
+        </ul>
+    </form>
+</div>
+</nav>
+@endsection
