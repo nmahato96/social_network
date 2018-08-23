@@ -239,7 +239,8 @@ input.form_signup_button {
             <img src="img/login_screen.png">
         </div>
         <div class="signup_section">
-            <form action="" method="POST">
+            <form action="{{action('LoginSignupController@store')}}" method="POST">
+                {{ csrf_field() }}
                 <h1>Create an account</h1>
                 <h3>It's free and always will be.</h3>
                 <input type="text" name="fname" placeholder="First name" class="sign_up_fullname sign_up_firstname">
@@ -247,7 +248,7 @@ input.form_signup_button {
                 <input type="text" name="email" placeholder="Mobile number or email address" class="sign_up_credentials sign_up_email"><br>
                 <input type="password" name="password" placeholder="New Password" class="sign_up_credentials sign_up_password">
                 <h3>Birthday</h3>
-                <select>
+                <select name="day">
                     <option value="">Day</option>
                     <?php
 for($i=1;$i<=31;$i++){
@@ -255,22 +256,22 @@ for($i=1;$i<=31;$i++){
 }
                     ?>
                 </select>
-                <select>
+                <select name="month">
                     <option value="">Month</option>
-                    <option value="Jan">Jan</option>
-                    <option value="Feb">Feb</option>
-                    <option value="Mar">Mar</option>
-                    <option value="Apr">Apr</option>
-                    <option value="May">May</option>
-                    <option value="Jun">Jun</option>
-                    <option value="July">July</option>
-                    <option value="Aug">Aug</option>
-                    <option value="Sept">Sept</option>
-                    <option value="Oct">Oct</option>
-                    <option value="Nov">Nov</option>
-                    <option value="Dec">Dec</option>
+                    <option value="01">Jan</option>
+                    <option value="02">Feb</option>
+                    <option value="03">Mar</option>
+                    <option value="04">Apr</option>
+                    <option value="05">May</option>
+                    <option value="06">Jun</option>
+                    <option value="07">July</option>
+                    <option value="08">Aug</option>
+                    <option value="09">Sept</option>
+                    <option value="10">Oct</option>
+                    <option value="11">Nov</option>
+                    <option value="12">Dec</option>
                 </select>
-                <select>
+                <select name="year">
                     <option value="">Year</option>
                     <?php
 for($i=2018;$i>=1905;$i--){
